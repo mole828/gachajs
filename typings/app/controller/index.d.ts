@@ -2,10 +2,10 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
-import ExportArk from '../../../app/controller/ark';
+import ExportHome from '../../../app/controller/ark';
 
 declare module 'egg' {
   interface IController {
-    ark: ExportArk;
+    home: ExportHome;
   }
 }
