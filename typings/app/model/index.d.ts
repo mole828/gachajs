@@ -3,9 +3,11 @@
 
 import 'egg';
 import ExportDoctor from '../../../app/model/doctor';
+import ExportGacha from '../../../app/model/gacha';
 
 declare module 'egg' {
   interface IModel {
     Doctor: ReturnType<typeof ExportDoctor>;
+    Gacha: ReturnType<typeof ExportGacha>;
   }
 }
