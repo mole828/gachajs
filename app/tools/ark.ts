@@ -2,9 +2,15 @@ import axios from 'axios';
 
 // const token = 'qe/AxGCo1//WCzsOKZ18bD8C';
 
-export const sleep = (ms) => new Promise(resolve=>setTimeout(resolve,ms))
+axios.interceptors.response.use(function(response){
+    return response;
+},function(error){
+    //console.log( Object.keys(error) )
+    return Promise.resolve(error.response);
+})
 
-async function basic(token: string){
+
+export async function basic(token: string){
     const data = {
         "appId": 1,
         "channelMasterId": 1,
@@ -17,8 +23,8 @@ async function basic(token: string){
 
 export enum InquiryType {
     gacha = 'gacha',
-    diamond = 'diamond',
-    recent = 'recent',
+    //diamond = 'diamond',
+    //recent = 'recent',
 }
 
 async function inquiry(type:string,token:string,page:number,) { 
@@ -37,9 +43,10 @@ export async function*  iter(type:string,token:string){
     } 
 }
 
-(async function main() {
+async function main() {
     console.log('start')
     const token = 'Zf43FimygP5Azv6rifJifVHA'
     console.log(await basic(token))
     console.log('end')
-})();
+};
+if(require.main===module){main();}

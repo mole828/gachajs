@@ -7,6 +7,7 @@ export default function(app:Application) {
   const schema = new Schema({
     uid: { type: String },
     nickName: { type: String },
+    token: { type: String },
   });
   return mongoose.model('doctor', schema);
 }
